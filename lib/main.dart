@@ -5,15 +5,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'dart:developer';
 
-main() {
-  init();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await init();
 
   runApp(const MyApp());
 }
 
 Future init() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
   log('app init', name: 'app init');
   await Firebase.initializeApp();
 
