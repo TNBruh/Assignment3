@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "711177098149",
+    "firebase_url": "https://fractal-unj-9f50c.firebaseio.com",
+    "project_id": "fractal-unj-9f50c",
+    "storage_bucket": "fractal-unj-9f50c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711177098149:android:c34bd0acfce23e08dfce4c",
+        "android_client_info": {
+          "package_name": "com.example.assignment3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711177098149-ni67ajstv3akhsukjvd7od66pec0g8vu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4bXe2yiObPAieNLgMpRek5LH6BzWa0cE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711177098149-ni67ajstv3akhsukjvd7od66pec0g8vu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711177098149:android:98b87c7e2df8d50fdfce4c",
+        "android_client_info": {
+          "package_name": "com.example.gtk_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711177098149-ni67ajstv3akhsukjvd7od66pec0g8vu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4bXe2yiObPAieNLgMpRek5LH6BzWa0cE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711177098149-ni67ajstv3akhsukjvd7od66pec0g8vu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
