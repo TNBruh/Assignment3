@@ -1,35 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'dart:developer';
+import 'package:assignment3/miscs/init.misc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await init();
 
   runApp(const MyApp());
-}
-
-Future init() async {
-  log('app init', name: 'app init');
-  await Firebase.initializeApp();
-
-  log('firestore settings', name: 'firestore init');
-  FirebaseFirestore.instance.settings = const Settings(
-    host: 'localhost:8080',
-    sslEnabled: false,
-    persistenceEnabled: false,
-  );
-
-  log('auth settings', name: 'auth init');
-  await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
-
-  log(FirebaseAuth.instance.app.toString(), name: 'auth details, i hope');
-  log(FirebaseFirestore.instance.app.toString(),
-      name: 'firestore details, i hope');
-  log(Firebase.apps.toString(), name: 'emulator details, i hope');
 }
 
 class MyApp extends StatelessWidget {
