@@ -1,7 +1,10 @@
+import 'package:assignment3/screens/topic_screen/page_topic.dart';
+import 'package:assignment3/screens/widget/color_pallete.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer';
 import 'package:assignment3/screens/topic_screen/home.dart';
 import 'package:assignment3/miscs/init.misc.dart';
+import 'package:sizer/sizer.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,18 +19,23 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: Home(),
-    );
+    return Sizer(builder: (context, orientation, deviceType) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          appBarTheme: AppBarTheme(
+              backgroundColor: ColorPallete.primary,
+              iconTheme: IconThemeData(color: ColorPallete.textWhite)),
+          primarySwatch: Colors.blue,
+          fontFamily: 'Poppins',
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: TopicScreen(),
+      );
+    });
   }
 }
-
 // class MyHomePage extends StatefulWidget {
 //   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -112,3 +120,4 @@ class MyApp extends StatelessWidget {
 //     );
 //   }
 // }
+
