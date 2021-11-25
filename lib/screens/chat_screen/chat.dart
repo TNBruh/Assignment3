@@ -1,6 +1,8 @@
-import 'package:assignment3/screens/topic_screen/constant.dart';
-import 'package:assignment3/screens/topic_screen/style.dart';
+import 'package:assignment3/screens/constant.dart';
+import 'package:assignment3/screens/topic_screen/component_avatar.dart';
+import 'package:assignment3/screens/widget/text.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class ChatScreen extends StatelessWidget {
   @override
@@ -29,9 +31,9 @@ class ChatScreen extends StatelessWidget {
                   itemBuilder: (context, index) => messages[index]['from'] ==
                           'sender'
                       ? sender(
-                          messages[index]['message'], messages[index]['time'])
-                      : receiver(
-                          messages[index]['message'], messages[index]['time'])),
+                          messages[index]['message']!, messages[index]['time']!)
+                      : receiver(messages[index]['message']!,
+                          messages[index]['time']!)),
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -124,6 +126,7 @@ class ChatScreen extends StatelessWidget {
                     bottomRight: Radius.circular(0))),
             child: PrimaryText(
               text: message,
+              fontSize: 16.0.sp,
               color: Colors.black54,
             ),
           ),
@@ -154,6 +157,7 @@ class ChatScreen extends StatelessWidget {
                         bottomRight: Radius.circular(25))),
                 child: PrimaryText(
                   text: message,
+                  fontSize: 16.0.sp,
                   color: Colors.black54,
                 ),
               ),
