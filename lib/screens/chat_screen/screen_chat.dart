@@ -1,5 +1,3 @@
-import 'package:assignment3/screens/topic_screen/component_avatar.dart';
-
 import '../widget/color_pallete.dart';
 import '../widget/text.dart';
 import '../constant.dart';

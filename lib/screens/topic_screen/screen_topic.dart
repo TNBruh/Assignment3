@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import 'component_avatar.dart';
-
 class TopicScreen extends StatelessWidget {
   const TopicScreen({Key? key}) : super(key: key);
 

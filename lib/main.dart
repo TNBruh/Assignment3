@@ -1,8 +1,7 @@
-import 'package:assignment3/screens/topic_screen/screen_topic.dart';
-import 'package:assignment3/screens/widget/color_pallete.dart';
+import 'screens/topic_screen/screen_topic.dart';
+import 'screens/widget/color_pallete.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer';
-import 'package:assignment3/screens/topic_screen/home.dart';
 import 'package:assignment3/miscs/init.misc.dart';
 import 'package:sizer/sizer.dart';
 import 'package:get/get.dart';

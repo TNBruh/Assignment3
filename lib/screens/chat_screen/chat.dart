@@ -7,11 +7,10 @@ import 'package:sizer/sizer.dart';
 class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       backgroundColor: Color(0xff5b61b9),
       body: ListView(
-        children: [customAppBar(context), header(), chatArea(context)],
+        children: [header(), chatArea(context)],
       ),
     );
   }
@@ -83,20 +82,6 @@ class ChatScreen extends StatelessWidget {
             color: Colors.white,
             fontWeight: FontWeight.w900,
           ),
-        ],
-      ),
-    );
-  }
-
-  Padding customAppBar(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          FlatButton(
-              child: Icon(Icons.arrow_back, size: 22.0, color: Colors.white),
-              onPressed: () => {Navigator.pop(context)}),
         ],
       ),
     );
