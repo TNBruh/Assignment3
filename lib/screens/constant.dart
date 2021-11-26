@@ -12,19 +12,19 @@ const avatarList = [
 
 const userList = [
   {
-    'avatar': 'assets/avatar-1.png',
+    'avatar': 'assets/flutter.png',
     'name': 'Flutter Group',
     'message': 'Hey there! whats up? Is everything fine ',
     'time': '18:35'
   },
   {
-    'avatar': 'assets/avatar-2.png',
+    'avatar': 'assets/kotlin.png',
     'name': 'Kotlin Group',
     'message': 'Hey there! whats up? Is everything fine ',
     'time': '18:36'
   },
   {
-    'avatar': 'assets/avatar-3.png',
+    'avatar': 'assets/swift.png',
     'name': 'Swift Group',
     'message': 'Hey there! whats up? Is everything fine ',
     'time': '18:37'

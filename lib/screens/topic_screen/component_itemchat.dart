@@ -1,7 +1,9 @@
+import 'package:assignment3/screens/chat_screen/chat.dart';
+import 'package:assignment3/screens/widget/color_pallete.dart';
 import 'package:assignment3/screens/widget/text.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-
+import 'package:get/get.dart';
 import 'component_avatar.dart';
 
 class ItemChat extends StatelessWidget {
@@ -19,23 +21,33 @@ class ItemChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 1.h, bottom: 1.h),
-      child: ListTile(
-        onTap: () => {},
-        leading: Avatar(avatarUrl: avatarUrl!),
-        title: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            PrimaryText(text: name!, fontSize: 18),
-            PrimaryText(text: time!, color: Colors.grey[400], fontSize: 14),
-          ],
-        ),
-        subtitle: PrimaryText(
-            text: message!,
-            color: Colors.grey[600],
-            fontSize: 14,
-            overflow: TextOverflow.ellipsis),
+      padding: EdgeInsets.only(top: 0.5.h),
+      child: Column(
+        children: [
+          ListTile(
+            onTap: () => {Get.to(ChatScreen())},
+            leading: Avatar(avatarUrl: avatarUrl!),
+            title: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                PrimaryText(
+                  text: name!,
+                  fontSize: 14.sp,
+                  color: ColorPallete.textBlack,
+                ),
+                PrimaryText(
+                    text: time!, color: Colors.grey[600], fontSize: 10.sp),
+              ],
+            ),
+            subtitle: PrimaryText(
+                text: message!,
+                color: Colors.grey[600],
+                fontSize: 10.sp,
+                overflow: TextOverflow.ellipsis),
+          ),
+          Divider(color: ColorPallete.textGrey)
+        ],
       ),
     );
   }

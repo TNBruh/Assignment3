@@ -5,6 +5,7 @@ import 'dart:developer';
 import 'package:assignment3/screens/topic_screen/home.dart';
 import 'package:assignment3/miscs/init.misc.dart';
 import 'package:sizer/sizer.dart';
+import 'package:get/get.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,12 +21,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
-      return MaterialApp(
+      return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           appBarTheme: AppBarTheme(
               backgroundColor: ColorPallete.primary,
+              brightness: Brightness.dark,
               iconTheme: IconThemeData(color: ColorPallete.textWhite)),
           primarySwatch: Colors.blue,
           fontFamily: 'Poppins',

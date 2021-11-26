@@ -6,20 +6,20 @@ class Avatar extends StatelessWidget {
   final double? width;
   final double? height;
 
-  const Avatar({
+  Avatar({
     required this.avatarUrl,
-    this.width: 60,
-    this.height: 60,
+    this.width,
+    this.height,
   });
-  // TODO: show avatar group
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width,
-      height: height,
+      width: width ?? 14.w,
+      height: height ?? 14.w,
       margin: EdgeInsets.only(right: 2.w),
       decoration: BoxDecoration(
-          color: Colors.grey,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(50),
           image: DecorationImage(
               image: AssetImage(avatarUrl),
