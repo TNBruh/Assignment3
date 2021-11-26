@@ -1,6 +1,6 @@
-import 'package:assignment3/screens/constant.dart';
-import 'package:assignment3/screens/topic_screen/component_avatar.dart';
-import 'package:assignment3/screens/widget/text.dart';
+import '../constant.dart';
+import '../topic_screen/component_avatar.dart';
+import '../widget/text.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -33,7 +33,7 @@ class ChatScreen extends StatelessWidget {
                       ? sender(
                           messages[index]['message']!, messages[index]['time']!)
                       : receiver(messages[index]['message']!,
-                          messages[index]['time']!)),
+                          messages[index]['time']!, messages[index]['from']!)),
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -135,7 +135,7 @@ class ChatScreen extends StatelessWidget {
     );
   }
 
-  Widget receiver(String message, String time) {
+  Widget receiver(String message, String time, String from) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 25.0),
       child: Row(

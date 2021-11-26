@@ -1,4 +1,4 @@
-import 'package:assignment3/screens/topic_screen/page_topic.dart';
+import 'package:assignment3/screens/topic_screen/screen_topic.dart';
 import 'package:assignment3/screens/widget/color_pallete.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer';

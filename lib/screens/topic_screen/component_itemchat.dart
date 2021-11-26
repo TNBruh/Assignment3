@@ -1,6 +1,6 @@
-import 'package:assignment3/screens/chat_screen/chat.dart';
-import 'package:assignment3/screens/widget/color_pallete.dart';
-import 'package:assignment3/screens/widget/text.dart';
+import '../chat_screen/screen_chat.dart';
+import '../widget/color_pallete.dart';
+import '../widget/text.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:get/get.dart';
