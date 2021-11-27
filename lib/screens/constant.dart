@@ -32,6 +32,11 @@ const userList = [
 ];
 
 const messages = [
+  /**
+   * topic : String
+   * user: String
+   * content: String
+   */
   {
     'from': 'sender',
     'message': 'hi',

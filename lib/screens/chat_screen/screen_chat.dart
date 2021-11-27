@@ -1,6 +1,6 @@
 import '../widget/color_pallete.dart';
 import '../widget/text.dart';
-import '../constant.dart';
+import '../constant.dart'; //placeholder messages imported through here
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:get/get.dart';
@@ -32,14 +32,15 @@ class ChatScreen extends StatelessWidget {
                   padding: EdgeInsets.only(left: 5.w, right: 5.w, top: 4.h),
                   child: ListView.builder(
                       itemCount: messages.length,
-                      itemBuilder: (context, index) =>
-                          messages[index]['from'] == 'sender'
-                              ? sender(messages[index]['message']!,
-                                  messages[index]['time']!)
-                              : receiver(
-                                  messages[index]['message']!,
-                                  messages[index]['time']!,
-                                  messages[index]['from']!)),
+                      itemBuilder: (context, index) => messages[index]
+                                  ['from'] ==
+                              'sender' //TODO: REPLACE SENDER WITH DYNAMIC NAMING
+                          ? sender(messages[index]['message']!,
+                              messages[index]['time']!)
+                          : receiver(
+                              messages[index]['message']!,
+                              messages[index]['time']!,
+                              messages[index]['from']!)),
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 3.w, horizontal: 3.w),
@@ -63,7 +64,9 @@ class ChatScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: RawMaterialButton(
                           constraints: BoxConstraints(minWidth: 0),
-                          onPressed: () {},
+                          onPressed: () {
+                            //TODO
+                          },
                           elevation: 2.0,
                           fillColor: ColorPallete.primary,
                           child:
