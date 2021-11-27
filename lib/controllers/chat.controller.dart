@@ -29,6 +29,7 @@ class Chat extends GetxController {
         log(msg.topic, name: 'sussy wussy');
         break;
     }
+    log(alpha.value.toString(), name: 'double check assigning topics');
   }
 
   void broadcast(Message msg) {
@@ -37,10 +38,11 @@ class Chat extends GetxController {
       'user': msg.sender,
       'content': msg.content,
     };
-
+    log(Environment.broadcastUrl.toString(), name: 'broadcasting to');
     http.post(
       Uri.parse(Environment.broadcastUrl),
       body: content,
     );
+    log('successfully broadcast', name: 'sussy wussy');
   }
 }

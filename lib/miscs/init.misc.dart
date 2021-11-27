@@ -15,9 +15,12 @@ Future<void> init() async {
 
   final Chat chatController = Get.put(Chat());
 
+  await FirebaseMessaging.instance.subscribeToTopic('sussus');
+
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
     final Map<String, dynamic> data = message.data;
 
+    log(data.toString(), name: 'data content');
     //expect { topic: String, user: String, content: String }
     final Message msg = Message(
       sender: data['user'],
@@ -25,7 +28,10 @@ Future<void> init() async {
       topic: data['topic'],
     );
 
-    chatController.broadcast(msg);
+    //chatController.broadcast(msg);
+    log(msg.toString(), name: 'restructured message');
+    chatController.assignTopics(msg);
+    log('assigned topics', name: 'finished assigning topics');
   });
 
   // log('firestore settings', name: 'firestore init');

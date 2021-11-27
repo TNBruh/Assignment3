@@ -1,10 +1,13 @@
+import 'package:assignment3/controllers/chat.controller.dart';
 import 'package:assignment3/controllers/user.controller.dart';
+import 'package:assignment3/models/message.model.dart';
 
 import '../widget/color_pallete.dart';
 import '../widget/text.dart';
 import '../constant.dart'; //placeholder messages imported through here
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'dart:developer';
 import 'package:get/get.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -18,6 +21,9 @@ class ChatScreen extends StatelessWidget {
     final User _user = Get.put(User());
     // get arguments topic
     final String _topic = Get.arguments;
+    // get
+    final Chat chatController = Get.put(Chat());
+
     return Scaffold(
         appBar: AppBar(
           title: PrimaryText(
@@ -38,13 +44,32 @@ class ChatScreen extends StatelessWidget {
                   height: 76.h,
                   decoration: BoxDecoration(color: ColorPallete.background),
                   padding: EdgeInsets.only(left: 5.w, right: 5.w, top: 4.h),
-                  child: ListView.builder(
-                      itemCount: messages.length,
-                      itemBuilder: (context, index) =>
-                          messages[index]['user'] == _user.username
-                              ? sender(messages[index]['content']!)
-                              : receiver(messages[index]['content']!,
-                                  messages[index]['user']!)),
+                  child: Obx(
+                    () => ListView.builder(
+                      itemCount: getChannel().length,
+                      itemBuilder: (context, index) {
+                        //this feels sub-optimal, lmao
+                        var channel;
+                        switch (Get.arguments) {
+                          case 'alpha':
+                            channel = chatController.alpha;
+                            break;
+                          case 'beta':
+                            channel = chatController.beta;
+                            break;
+                          case 'gamma':
+                            channel = chatController.gamma;
+                            break;
+                        }
+
+                        final Message msg = channel[index];
+                        final Widget res = (msg.sender == _user.username)
+                            ? sender(msg.content)
+                            : receiver(msg.content, msg.sender);
+                        return res;
+                      },
+                    ),
+                  ),
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 3.w, horizontal: 3.w),
@@ -70,8 +95,22 @@ class ChatScreen extends StatelessWidget {
                         child: RawMaterialButton(
                           constraints: BoxConstraints(minWidth: 0),
                           onPressed: () {
+                            log('pressed', name: 'pressed button');
+                            //SEND MESSAGE
                             String Content =
-                                _chatfieldcontroller.text.toString();
+                                _chatfieldcontroller.text.toString(); // content
+                            log(Content, name: 'message content');
+                            //1. PARSE INPUT INTO MESSAGE MODEL
+                            final message = Message(
+                              sender: _user.username,
+                              content: Content,
+                              topic: _topic,
+                            );
+
+                            log(message.toString(), name: 'formed message');
+                            //2. USE CHAT CONTROLLER TO SEND THE MESSAGE MODEL
+                            chatController.broadcast(message);
+                            log('sent request', name: 'broadcasting');
                           },
                           elevation: 2.0,
                           fillColor: ColorPallete.primary,
@@ -160,5 +199,22 @@ class ChatScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  RxList<dynamic> getChannel() {
+    final Chat chatController = Get.put(Chat());
+    switch (Get.arguments) {
+      case 'alpha':
+        return chatController.alpha;
+      case 'beta':
+        return chatController.beta;
+      case 'gamma':
+        return chatController.gamma;
+      default:
+        log('meh', name: 'sussy wussy');
+        break;
+    }
+
+    return chatController.gamma;
   }
 }
