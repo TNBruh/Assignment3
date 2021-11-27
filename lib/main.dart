@@ -1,3 +1,5 @@
+import 'package:assignment3/screens/main_creen/screen_main.dart';
+
 import 'screens/topic_screen/screen_topic.dart';
 import 'screens/widget/color_pallete.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Poppins',
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: TopicScreen(),
+        home: MainScreen(),
       );
     });
   }
