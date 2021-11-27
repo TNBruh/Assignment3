@@ -14,10 +14,12 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // user
     final User _user = Get.put(User());
+    // get arguments topic
+    final String _topic = Get.arguments;
     return Scaffold(
         appBar: AppBar(
           title: PrimaryText(
-            text: "Flutter Group",
+            text: "Flutter Group " + _topic,
             fontSize: 16.0.sp,
           ),
           leading: BackButton(

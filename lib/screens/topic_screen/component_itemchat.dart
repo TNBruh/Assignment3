@@ -9,14 +9,9 @@ import 'component_avatar.dart';
 class ItemChat extends StatelessWidget {
   final String? avatarUrl;
   final String? name;
-  final String? message;
-  final String? time;
+  final String? topic;
 
-  ItemChat(
-      {required this.avatarUrl,
-      required this.name,
-      required this.message,
-      required this.time});
+  ItemChat({required this.avatarUrl, required this.name, required this.topic});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +20,7 @@ class ItemChat extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
-            onTap: () => {Get.to(ChatScreen())},
+            onTap: () => {Get.to(ChatScreen(), arguments: topic)},
             leading: Avatar(avatarUrl: avatarUrl!),
             title: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,15 +31,8 @@ class ItemChat extends StatelessWidget {
                   fontSize: 14.sp,
                   color: ColorPallete.textBlack,
                 ),
-                PrimaryText(
-                    text: time!, color: Colors.grey[600], fontSize: 10.sp),
               ],
             ),
-            subtitle: PrimaryText(
-                text: message!,
-                color: Colors.grey[600],
-                fontSize: 10.sp,
-                overflow: TextOverflow.ellipsis),
           ),
           Divider(color: ColorPallete.textGrey)
         ],
