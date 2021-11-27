@@ -1,3 +1,4 @@
+import 'package:assignment3/controllers/user.controller.dart';
 import 'package:assignment3/screens/topic_screen/screen_topic.dart';
 import 'package:assignment3/screens/widget/color_pallete.dart';
 import 'package:assignment3/screens/widget/text.dart';
@@ -15,6 +16,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final TextEditingController _usernamefieldcontroller =
       TextEditingController();
+  final User _user = Get.put(User());
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class _MainScreenState extends State<MainScreen> {
                 child: Column(
                   children: [
                     TextField(
+                      controller: _usernamefieldcontroller,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Enter username',
@@ -43,6 +46,9 @@ class _MainScreenState extends State<MainScreen> {
                       width: 100.w,
                       child: TextButton(
                           onPressed: () {
+                            // assign username to User()
+                            _user.username =
+                                _usernamefieldcontroller.text.toString();
                             Get.to(TopicScreen());
                           },
                           style: TextButton.styleFrom(
