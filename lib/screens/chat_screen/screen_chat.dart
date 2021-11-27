@@ -65,7 +65,7 @@ class ChatScreen extends StatelessWidget {
                           constraints: BoxConstraints(minWidth: 0),
                           onPressed: () {},
                           elevation: 2.0,
-                          fillColor: Color(0xff5b61b9),
+                          fillColor: ColorPallete.primary,
                           child:
                               Icon(Icons.send, size: 22.0, color: Colors.white),
                           padding: EdgeInsets.all(10.0),
