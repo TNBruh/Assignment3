@@ -1,3 +1,5 @@
+import 'package:assignment3/controllers/user.controller.dart';
+
 import '../widget/color_pallete.dart';
 import '../widget/text.dart';
 import '../constant.dart'; //placeholder messages imported through here
@@ -10,6 +12,8 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // user
+    final User _user = Get.put(User());
     return Scaffold(
         appBar: AppBar(
           title: PrimaryText(
@@ -32,15 +36,11 @@ class ChatScreen extends StatelessWidget {
                   padding: EdgeInsets.only(left: 5.w, right: 5.w, top: 4.h),
                   child: ListView.builder(
                       itemCount: messages.length,
-                      itemBuilder: (context, index) => messages[index]
-                                  ['from'] ==
-                              'sender' //TODO: REPLACE SENDER WITH DYNAMIC NAMING
-                          ? sender(messages[index]['message']!,
-                              messages[index]['time']!)
-                          : receiver(
-                              messages[index]['message']!,
-                              messages[index]['time']!,
-                              messages[index]['from']!)),
+                      itemBuilder: (context, index) =>
+                          messages[index]['user'] == _user.username
+                              ? sender(messages[index]['content']!)
+                              : receiver(messages[index]['content']!,
+                                  messages[index]['user']!)),
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 3.w, horizontal: 3.w),
@@ -84,18 +84,13 @@ class ChatScreen extends StatelessWidget {
         ));
   }
 
-  Widget sender(String message, String time) {
+  Widget sender(String message) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 25.0),
       child: Row(
         // mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10.0),
-            child:
-                PrimaryText(text: time, color: Colors.grey[400], fontSize: 14),
-          ),
           Container(
             constraints: BoxConstraints(minWidth: 100, maxWidth: 280),
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -117,7 +112,7 @@ class ChatScreen extends StatelessWidget {
     );
   }
 
-  Widget receiver(String message, String time, String from) {
+  Widget receiver(String message, String from) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 25.0),
       child: Column(
@@ -154,11 +149,6 @@ class ChatScreen extends StatelessWidget {
                 ],
               ),
               Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(right: 10.0),
-                child: PrimaryText(
-                    text: time, color: Colors.grey[400], fontSize: 14),
-              ),
             ],
           ),
         ],
