@@ -11,24 +11,9 @@ const avatarList = [
 ];
 
 const userList = [
-  {
-    'avatar': 'assets/flutter.png',
-    'name': 'Flutter Group',
-    'message': 'Hey there! whats up? Is everything fine ',
-    'time': '18:35'
-  },
-  {
-    'avatar': 'assets/kotlin.png',
-    'name': 'Kotlin Group',
-    'message': 'Hey there! whats up? Is everything fine ',
-    'time': '18:36'
-  },
-  {
-    'avatar': 'assets/swift.png',
-    'name': 'Swift Group',
-    'message': 'Hey there! whats up? Is everything fine ',
-    'time': '18:37'
-  },
+  {'avatar': 'assets/flutter.png', 'name': 'Flutter Group', 'topic': 'alpha'},
+  {'avatar': 'assets/kotlin.png', 'name': 'Kotlin Group', 'topic': 'beta'},
+  {'avatar': 'assets/swift.png', 'name': 'Swift Group', 'topic': 'gamma'},
 ];
 
 const messages = [

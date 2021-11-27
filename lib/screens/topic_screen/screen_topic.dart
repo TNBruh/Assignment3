@@ -32,10 +32,10 @@ class TopicScreen extends StatelessWidget {
                 itemCount: userList.length,
                 itemBuilder: (context, index) {
                   return ItemChat(
-                      avatarUrl: userList[index]['avatar']!,
-                      name: userList[index]['name']!,
-                      message: userList[index]['message']!,
-                      time: userList[index]['time']!);
+                    avatarUrl: userList[index]['avatar']!,
+                    name: userList[index]['name']!,
+                    topic: userList[index]['topic'],
+                  );
                 }),
           )),
         ));
