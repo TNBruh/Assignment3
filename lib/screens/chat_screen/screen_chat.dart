@@ -65,7 +65,14 @@ class ChatScreen extends StatelessWidget {
                         child: RawMaterialButton(
                           constraints: BoxConstraints(minWidth: 0),
                           onPressed: () {
-                            //TODO
+                            //TODO: SEND BROADCAST MESSAGE
+                            /**
+                             * Message({
+                                required this.sender,
+                                required this.content,
+                                required this.topic,
+                              });
+                             */
                           },
                           elevation: 2.0,
                           fillColor: ColorPallete.primary,
