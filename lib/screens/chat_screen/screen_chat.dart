@@ -12,6 +12,8 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // controller text field
+    final TextEditingController _chatfieldcontroller = TextEditingController();
     // user
     final User _user = Get.put(User());
     // get arguments topic
@@ -48,6 +50,7 @@ class ChatScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 3.w, horizontal: 3.w),
                   decoration: BoxDecoration(color: ColorPallete.primary),
                   child: TextField(
+                    controller: _chatfieldcontroller,
                     decoration: InputDecoration(
                       fillColor: Colors.grey[200],
                       contentPadding:
@@ -67,14 +70,8 @@ class ChatScreen extends StatelessWidget {
                         child: RawMaterialButton(
                           constraints: BoxConstraints(minWidth: 0),
                           onPressed: () {
-                            //TODO: SEND BROADCAST MESSAGE
-                            /**
-                             * Message({
-                                required this.sender,
-                                required this.content,
-                                required this.topic,
-                              });
-                             */
+                            String Content =
+                                _chatfieldcontroller.text.toString();
                           },
                           elevation: 2.0,
                           fillColor: ColorPallete.primary,
