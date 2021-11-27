@@ -89,7 +89,7 @@ class ChatScreen extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 25.0),
       child: Row(
         // mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Container(
             constraints: BoxConstraints(minWidth: 100, maxWidth: 280),
