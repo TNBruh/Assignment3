@@ -17,17 +17,21 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // controller text field
     final TextEditingController _chatfieldcontroller = TextEditingController();
+    // controller listview
+    ScrollController _listviewcontroller = new ScrollController();
     // user
     final User _user = Get.put(User());
     // get arguments topic
     final String _topic = Get.arguments;
     // get
     final Chat chatController = Get.put(Chat());
+    // get name channel
+    final String namechanell = getNameChannel();
 
     return Scaffold(
         appBar: AppBar(
           title: PrimaryText(
-            text: "Flutter Group " + _topic,
+            text: "${namechanell} Group ",
             fontSize: 16.0.sp,
           ),
           leading: BackButton(
@@ -47,6 +51,7 @@ class ChatScreen extends StatelessWidget {
                   child: Obx(
                     () => ListView.builder(
                       itemCount: getChannel().length,
+                      controller: _listviewcontroller,
                       itemBuilder: (context, index) {
                         //this feels sub-optimal, lmao
                         var channel;
@@ -94,11 +99,13 @@ class ChatScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: RawMaterialButton(
                           constraints: BoxConstraints(minWidth: 0),
-                          onPressed: () {
+                          onPressed: () async {
                             log('pressed', name: 'pressed button');
                             //SEND MESSAGE
                             String Content =
                                 _chatfieldcontroller.text.toString(); // content
+                            _chatfieldcontroller.clear();
+                            FocusScope.of(context).unfocus();
                             log(Content, name: 'message content');
                             //1. PARSE INPUT INTO MESSAGE MODEL
                             final message = Message(
@@ -216,5 +223,18 @@ class ChatScreen extends StatelessWidget {
     }
 
     return chatController.gamma;
+  }
+
+  String getNameChannel() {
+    final Chat chatController = Get.put(Chat());
+    switch (Get.arguments) {
+      case 'alpha':
+        return 'Flutter';
+      case 'beta':
+        return 'Kotlin';
+      case 'gamma':
+        return 'Swift';
+    }
+    return 'Flutter';
   }
 }
