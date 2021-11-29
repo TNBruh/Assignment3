@@ -18,6 +18,32 @@ You can change your username.
 
 https://youtu.be/7G3vl0bE5w0
 
+# Misc
+
+Flutter app's source code is at the "apps" folder.
+
+Server is at "assignment3server" folder.
+
+The executable file is debug.apk.
+
+How to run the flutter app in an emulator:
+
+1. cd ./apps
+
+2. flutter pub get
+
+3. flutter emulators --launch youremulatoridhere
+
+4. flutter run
+
+How to generate .apk
+
+1. cd ./apps
+
+2. flutter pub get
+
+3. flutter build apk
+
 # Images
 
 ![Alt text](./image2.png "Registration")
